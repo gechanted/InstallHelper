@@ -1,0 +1,19 @@
+{
+
+  "name": "gechanted/install-helper",
+  "license": "MIT",
+  "version": "1.0",
+
+
+  "require": {
+    "hoa/console": "3.17.05.02",
+    "wp-cli/php-cli-tools": "0.11.*",
+    "ext-json": "*"
+  },
+
+  "autoload": {
+    "psr-4": {
+      "InstallHelper\\": "src"
+    }
+  }
+}
