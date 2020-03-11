@@ -30,6 +30,16 @@ class BooleanArgument extends BaseArgument
     /**
      * @param string $id
      * @param string[] $cliAccessors
+     * @return BooleanArgument
+     */
+    public static function newRequiredNonSetting(string $id, array $cliAccessors): BooleanArgument
+    {
+        return new self($id, $cliAccessors, BaseArgument::USAGE_NON_SETTING);
+    }
+
+    /**
+     * @param string $id
+     * @param string[] $cliAccessors
      * @param $default
      * @return BooleanArgument
      */

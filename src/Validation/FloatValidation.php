@@ -16,7 +16,7 @@ class FloatValidation implements ValidatingCallable
         }
 
         if ($result === false) {
-            echo 'input is not readable as a float: [0-9]*(.[0-9]*)?';
+            echo 'input is not readable as a float: [0-9]*(.[0-9]*)?' . PHP_EOL;
         }
         return $result;
     }

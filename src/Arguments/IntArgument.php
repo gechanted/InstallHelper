@@ -29,6 +29,16 @@ class IntArgument extends BaseArgument
     /**
      * @param string $id
      * @param string[] $cliAccessors
+     * @return IntArgument
+     */
+    public static function newRequiredNonSetting(string $id, array $cliAccessors): IntArgument
+    {
+        return new self($id, $cliAccessors, BaseArgument::USAGE_NON_SETTING);
+    }
+
+    /**
+     * @param string $id
+     * @param string[] $cliAccessors
      * @param $default
      * @return IntArgument
      */
@@ -45,6 +55,6 @@ class IntArgument extends BaseArgument
      */
     public static function newOptionalNonSetting(string $id, array $cliAccessors, $default): IntArgument
     {
-        return new self($id, $cliAccessors, BaseArgument::USAGE_SETTING, BaseArgument::USAGE_OPTIONAL, $default);
+        return new self($id, $cliAccessors, BaseArgument::USAGE_NON_SETTING, BaseArgument::USAGE_OPTIONAL, $default);
     }
 }

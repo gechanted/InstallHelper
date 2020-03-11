@@ -29,6 +29,16 @@ class FloatArgument extends BaseArgument
     /**
      * @param string $id
      * @param string[] $cliAccessors
+     * @return FloatArgument
+     */
+    public static function newRequiredNonSetting(string $id, array $cliAccessors): FloatArgument
+    {
+        return new self($id, $cliAccessors, BaseArgument::USAGE_NON_SETTING);
+    }
+
+    /**
+     * @param string $id
+     * @param string[] $cliAccessors
      * @param $default
      * @return FloatArgument
      */
@@ -45,7 +55,7 @@ class FloatArgument extends BaseArgument
      */
     public static function newOptionalNonSetting(string $id, array $cliAccessors, $default): FloatArgument
     {
-        return new self($id, $cliAccessors, BaseArgument::USAGE_SETTING, BaseArgument::USAGE_OPTIONAL, $default);
+        return new self($id, $cliAccessors, BaseArgument::USAGE_NON_SETTING, BaseArgument::USAGE_OPTIONAL, $default);
     }
 
 }

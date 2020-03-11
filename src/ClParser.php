@@ -18,6 +18,9 @@ class ClParser
 
     public function addArgument(BaseArgument $argument)
     {
+        if (array_filter($this->arguments, function ($arg) use ($argument) {return $arg->getId() === $argument->getId();}) !== []) {
+            throw new \InvalidArgumentException('id "'. $argument->getId() .'" already exists');
+        }
         $this->arguments[] = $argument;
     }
 
@@ -38,19 +41,16 @@ class ClParser
 
         foreach ($this->arguments as $baseArgument)  {
             $cliAccessors = $baseArgument->getCliAccessors();
-            if ($cliAccessors !== []) {
-
+            if ($cliAccessors === []) {
+                $input = null;
+            } else {
                 reset($cliAccessors);
                 $key = key($cliAccessors);
                 $input = $parser->offsetGet($cliAccessors[$key]);
-                var_dump($input, $baseArgument->getId());
+            }
 
-                if ((isset($input) === false)) {
-                    if ($settings->has($baseArgument->getId())) {
-                        //do nothing ; value is already set
-                        continue;
-                    }
-                }
+            if ((isset($input) !== false)) {
+
 
                 if ($baseArgument->getType() === BaseArgument::TYPE_FLAG && is_bool($input)) {
                     $data->set($baseArgument->getId(), Helper::convert($input, $baseArgument->getType()));

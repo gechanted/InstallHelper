@@ -44,7 +44,6 @@ class Arguments
      */
     public function get(string $key)
     {
-        var_dump($this->settings, $this->nonSettings);
         if (array_key_exists($key, $this->baseArguments)) {
             $arg = $this->baseArguments[$key];
             if ($arg->getUsage() === BaseArgument::USAGE_NON_SETTING) {

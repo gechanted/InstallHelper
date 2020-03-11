@@ -31,6 +31,16 @@ class StringArgument extends BaseArgument
     /**
      * @param string $id
      * @param string[] $cliAccessors
+     * @return StringArgument
+     */
+    public static function newRequiredNonSetting(string $id, array $cliAccessors): StringArgument
+    {
+        return new self($id, $cliAccessors, BaseArgument::USAGE_NON_SETTING);
+    }
+
+    /**
+     * @param string $id
+     * @param string[] $cliAccessors
      * @param $default
      * @return StringArgument
      */
@@ -47,7 +57,7 @@ class StringArgument extends BaseArgument
      */
     public static function newOptionalNonSetting(string $id, array $cliAccessors, $default): StringArgument
     {
-        return new self($id, $cliAccessors, BaseArgument::USAGE_SETTING, BaseArgument::USAGE_OPTIONAL, $default);
+        return new self($id, $cliAccessors, BaseArgument::USAGE_NON_SETTING, BaseArgument::USAGE_OPTIONAL, $default);
     }
 
 
