@@ -13,6 +13,8 @@ $data = $cliHelper->getData();
 
 echo $data->get('int');
 
+$cliHelper->request('float');
+
 $data->getSettings()->save();
 
 

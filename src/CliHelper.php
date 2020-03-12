@@ -53,7 +53,8 @@ class CliHelper
         if ($result === []) {
             throw new \InvalidArgumentException("$key is not existing in Arguments");
         }
-        $index = array_key_first($result);
+        reset($result);
+        $index = key($result);
         return $result[$index];
     }
 
