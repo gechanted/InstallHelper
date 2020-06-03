@@ -10,6 +10,6 @@ class ValueRequiredMessage implements ValueRequiredMessageCallable
 
     public function printRequiredMessage(BaseArgument $argument): void
     {
-        echo 'Please specify ' . $argument->getId();
+        echo 'Please specify ' . $argument->getId() . ': ';
     }
 }
