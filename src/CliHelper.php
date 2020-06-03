@@ -29,7 +29,7 @@ class CliHelper
      * @param string $key
      * @throws \InvalidArgumentException
      */
-    public function askForChange(string $key)
+    public function askForChange(string $key): void
     {
         $argument = $this->getArgument($key);
         $value = $this->data->get($key);

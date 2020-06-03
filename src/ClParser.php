@@ -4,6 +4,7 @@ declare(strict_types=1);
 namespace InstallHelper;
 
 use InstallHelper\Arguments\BaseArgument;
+use function cli\input;
 use function cli\prompt;
 
 class ClParser
@@ -60,7 +61,7 @@ class ClParser
                 while (CallableHandler::callValidation($baseArgument->getValidation(), $input) === false) {
                     CallableHandler::callDescription($baseArgument->getDescription(), $baseArgument);
                     CallableHandler::callValueRequiredMessage($baseArgument->getValueRequiredMessage(), $baseArgument);
-                    $input = prompt('');
+                    $input = input('');
                 }
                 $data->set($baseArgument->getId(), Helper::convert($input, $baseArgument->getType()));
 
