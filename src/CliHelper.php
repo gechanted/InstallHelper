@@ -5,7 +5,6 @@ namespace InstallHelper;
 
 use InstallHelper\Arguments\BaseArgument;
 use function cli\choose;
-use function cli\prompt;
 
 class CliHelper
 {
@@ -76,7 +75,7 @@ class CliHelper
         CallableHandler::callDescription($argument->getDescription(), $argument);
         do {
             CallableHandler::callValueRequiredMessage($argument->getValueRequiredMessage(), $argument);
-            $input = prompt('');
+            $input = Helper::getLine();
         } while (CallableHandler::callValidation($argument->getValidation(), $input) === false);
         $this->data->set($key, Helper::convert($input, $argument->getType()));
     }

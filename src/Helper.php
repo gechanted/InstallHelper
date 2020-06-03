@@ -24,4 +24,11 @@ class Helper
                 return $value;
         }
     }
+
+    public static function getLine(): string
+    {
+        $handle = fopen ("php://stdin","r");
+        $line = fgets($handle);
+        return trim($line);
+    }
 }
