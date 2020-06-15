@@ -23,7 +23,6 @@ $parser->addArgument(new FlagArgument('flag', ['h', 'help']));
 
 
 
-
 $cliHelper = $parser->parse(new Settings(__DIR__ . '/../settings.json'));
 $data = $cliHelper->getData();
 
