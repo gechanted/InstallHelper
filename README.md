@@ -3,7 +3,7 @@ InstallHelper
 This Helper is made to easier install scripts. 
 
 The program assumes you need to fill a settings file in this script,  
-as well as making other things, like making a bd connection, to test the incoming info  
+as well as making other things, like making a database connection, to test the incoming info  
 
 The install-helper auto fills arguments with:
  - incoming params
